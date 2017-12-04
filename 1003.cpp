@@ -17,26 +17,29 @@ bool PAT(string str) {
             book[2] = true;
         else
             return false;
-            if (str[i] == 'P') {
-            for (int j = 0; j < i; j++) {
-                if (str[j] != 'A')
-                    return false;
-            }
-            if (str [i+1] != 'A')
+
+        if (str[i] == 'P') {
+        for (int j = 0; j < i; j++) {
+            if (str[j] != 'A')
                 return false;
-            for (int k = i + 2; k < len; k++) {
-                if (str[k] != 'A') {
-                    if (str[k] != 'T') {
+        }
+
+        if (str [i+1] != 'A')
+            return false;
+
+        for (int k = i + 2; k < len; k++) {
+            if (str[k] != 'A') {
+                if (str[k] != 'T') {
+                    return false;
+                }
+                if ((len - 1 - k) != ((k - 1 - i) * i))
+                    return false;
+                for (int m = k + 1; m < len; m++) {
+                    if (str[m] != 'A')
                         return false;
-                    }
-                    if ((len - 1 - k) != ((k - 1 - i) * i))
-                        return false;
-                    for (int m = k + 1; m < len; m++) {
-                        if (str[m] != 'A')
-                            return false;
-                    }
                 }
             }
+        }
         }
     }
     if(book[0] == false || book[1] == false || book[2] == false)
